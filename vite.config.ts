@@ -11,7 +11,7 @@ export default defineConfig({
     tailwindcss(),
     
   ],
-  base: '/VercittysCreations',
+  base: '/Vercitty',
   resolve: {
     alias: {
       // Alias @ to the src directory
