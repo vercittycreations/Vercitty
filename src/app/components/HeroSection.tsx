@@ -158,3 +158,99 @@ export function HeroSection() {
     </section>
   );
 }
+
+
+// Something new comingg
+// import { motion } from 'motion/react';
+// import { FloatingElement } from './FloatingElement';
+
+// export function HeroSection() {
+//   return (
+//     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+//       {/* VIDEO BACKGROUND - Only Hero */}
+//       <div className="absolute inset-0 -z-50 w-full h-full overflow-hidden">
+//         <video
+//           autoPlay
+//           muted
+//           loop
+//           playsInline
+//           className="w-full h-full object-cover"
+//           poster="https://images.unsplash.com/photo-1620641788924-4e488f1df14a?w=1920&q=80"
+//         >
+//           <source 
+//             src="https://videos.pexels.com/video-files/3571085/3571085-sd_640_360_24fps.mp4" 
+//             type="video/mp4" 
+//           />
+//           Your browser doesn't support HTML5 video.
+//         </video>
+//       </div>
+
+//       {/* Dark Overlay over video */}
+//       <div className="absolute inset-0 -z-40 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+
+//       {/* Ambient light effects */}
+//       <div className="absolute inset-0 overflow-hidden">
+//         <div className="absolute top-20 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-purple-500/20 rounded-full blur-[80px] md:blur-[120px] animate-pulse" />
+//         <div 
+//           className="absolute bottom-20 right-1/4 w-64 h-64 md:w-96 md:h-96 bg-cyan-500/20 rounded-full blur-[80px] md:blur-[120px] animate-pulse" 
+//           style={{ animationDelay: '1s' }} 
+//         />
+//         <div 
+//           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse" 
+//           style={{ animationDelay: '2s' }} 
+//         />
+//       </div>
+
+//       {/* Hero content */}
+//       <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 text-center">
+//         <motion.h1
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8, delay: 0.4 }}
+//           className="mb-6 text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
+//         >
+//           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-cyan-200">
+//             Crafting Digital
+//           </span>
+//           <br />
+//           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400">
+//             Experiences That Convert
+//           </span>
+//         </motion.h1>
+
+//         <motion.p
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8, delay: 0.6 }}
+//           className="mb-8 md:mb-12 text-base sm:text-lg md:text-2xl text-purple-200/80 max-w-3xl mx-auto leading-relaxed px-2 md:px-0"
+//         >
+//           Where creativity meets technology to deliver exceptional results.
+//           We transform your vision into powerful digital experiences that engage, inspire, and drive success.
+//         </motion.p>
+
+//         <motion.div
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.8, delay: 0.8 }}
+//         >
+//           <button 
+//             onClick={() => {
+//               const contactSection = document.getElementById('contact');
+//               if (contactSection) {
+//                 contactSection.scrollIntoView({ behavior: 'smooth' });
+//               }
+//             }}
+//             className="group relative px-6 md:px-10 py-3 md:py-5 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full overflow-hidden shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:shadow-[0_0_60px_rgba(139,92,246,0.6)] transition-all duration-300 transform hover:scale-105"
+//           >
+//             <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+//             <span className="relative z-10 flex items-center justify-center gap-2 text-sm md:text-base whitespace-nowrap">
+//               Start Your Project →
+//             </span>
+//           </button>
+//         </motion.div>
+//       </div>
+
+//       <div className="absolute bottom-0 left-0 right-0 h-20 md:h-32 bg-gradient-to-t from-[#0a0118] to-transparent" />
+//     </section>
+//   );
+// }

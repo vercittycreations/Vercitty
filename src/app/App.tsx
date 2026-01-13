@@ -6,19 +6,21 @@ import { ServicesSection } from './components/ServicesSection';
 import { AboutSection } from './components/AboutSection';
 import { PortfolioSection } from './components/PortfolioSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
-import  ContactSection  from './components/ContactSection';
+import ContactSection from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { ScrollIndicator } from './components/ScrollIndicator';
+import { PromoBanner } from './components/PromoBanner';
 
 // Legal Pages
-import PrivacyPolicy  from './components/PrivacyPolicy';
-import  TermsService  from './components/TermsService';
-import  CookiePolicy  from './components/CookiePolicy';
-import  Disclaimer  from './components/Disclaimer';
+import Privacy from './components/Privacy';
+import TermsService from './components/TermsService';
+import Cookie from './components/Cookie';
+import Disclaimer from './components/Disclaimer';
 
 function Home() {
   return (
     <div className="relative min-h-screen">
-      {/* FIXED BACKGROUND IMAGE */}
+      {/* FIXED BACKGROUND IMAGE - Only for Home */}
       <div 
         className="fixed inset-0 -z-50 bg-cover bg-center bg-no-repeat"
         style={{
@@ -28,7 +30,7 @@ function Home() {
         }}
       />
 
-      {/* DARK OVERLAY */}
+      {/* DARK OVERLAY - Only for Home */}
       <div className="fixed inset-0 -z-40 bg-gradient-to-b from-black/30 via-black/20 to-black/30" />
 
       {/* Navigation */}
@@ -43,7 +45,7 @@ function Home() {
       {/* Services Section */}
       <ServicesSection />
 
-      {/* Why Choose Us */}
+      {/* About Section */}
       <AboutSection />
 
       {/* Portfolio Section */}
@@ -53,7 +55,9 @@ function Home() {
       <TestimonialsSection />
 
       {/* Contact Section */}
-      <ContactSection />
+      <div className="relative z-20">
+        <ContactSection />
+      </div>
 
       {/* Footer */}
       <Footer />
@@ -64,11 +68,17 @@ function Home() {
 function App() {
   return (
     <Router>
+      {/* Promo Banner - Add here outside Routes */}
+      <PromoBanner />
+      
+      {/* Scroll Indicator - Add here outside Routes */}
+      <ScrollIndicator />
+      
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<TermsService />} />
-        <Route path="/cookies" element={<CookiePolicy />} />
+        <Route path="/cookies" element={<Cookie />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
       </Routes>
     </Router>
