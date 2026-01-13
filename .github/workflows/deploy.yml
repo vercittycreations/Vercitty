@@ -1,3 +1,4 @@
+
 name: Deploy Vercitty Website
 
 on:
@@ -12,14 +13,19 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
-      - run: npm install
+      - run: npm config set fetch-retry-mintimeout 20000
+      - run: npm config set fetch-retry-maxtimeout 120000
+
+      - run: npm ci
       - run: npm run build
       - run: cp dist/index.html dist/404.html
 
@@ -32,5 +38,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+
     steps:
       - uses: actions/deploy-pages@v4
