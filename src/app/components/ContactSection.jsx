@@ -10,34 +10,34 @@ const ContactSection = () => {
     {
       id: 1,
       category: 'Web Development',
-      email: 'web@vercitty.com',
+      email: 'vercittycreations@gmail.com',
       icon: '🌐',
       description: 'For web apps & UI/UX projects',
-      formLink: 'https://forms.gle/YOUR_WEB_DEV_FORM_ID'
+      formLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdb0w8kfnToh65Ivi-BPjytsKsyWAsflR0WJlAWG0k1RhCGCw/viewform?usp=sharing&ouid=109386834955517931435'
     },
     {
       id: 2,
       category: 'Video Editing',
-      email: 'video@vercitty.com',
+      email: 'vercittycreations@gmail.com',
       icon: '🎬',
       description: 'For video production & editing',
-      formLink: 'https://forms.gle/YOUR_VIDEO_FORM_ID'
+      formLink: 'https://forms.gle/aTranirVJqZJYYzDA'
     },
     {
       id: 3,
       category: 'Graphic Design',
-      email: 'design@vercitty.com',
+      email: 'vercittycreations@gmail.com',
       icon: '🎨',
       description: 'For branding & graphic design',
-      formLink: 'https://forms.gle/YOUR_DESIGN_FORM_ID'
+      formLink: 'https://forms.gle/aTranirVJqZJYYzDA'
     },
     {
       id: 4,
       category: 'General Inquiry',
-      email: 'hello@vercitty.com',
+      email: 'vercittycreations@gmail.com',
       icon: '💬',
       description: 'For general questions',
-      formLink: 'https://forms.gle/YOUR_GENERAL_FORM_ID',
+      formLink: 'https://forms.gle/MhqtgowfedyQdhty6',
       isGeneral: true
     }
   ];

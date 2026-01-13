@@ -35,15 +35,21 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Circle Background with Image */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-              Vercitty
-            </span>
+            <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center p-1">
+              <div className="w-full h-full rounded-full bg-[#0a0118] flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/logo.png"
+                  alt="Vercitty Logo"
+                  className="w-12 h-12 object-contain"
+                />
+              </div>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}
