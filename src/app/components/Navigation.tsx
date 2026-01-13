@@ -33,20 +33,22 @@ export function Navigation() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo - Circle Background with Image */}
+      {/* smaller padding on mobile */}
+      <div className="max-w-7xl mx-auto px-4 py-2 sm:px-6 sm:py-4">
+        {/* add gap so logo + menu don't touch */}
+        <div className="flex items-center justify-between gap-2">
+          {/* Logo - responsive sizes */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="cursor-pointer"
+            className="cursor-pointer flex-shrink-0"
             onClick={() => scrollToSection('hero')}
           >
-            <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center p-1">
+            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center p-1">
               <div className="w-full h-full rounded-full bg-[#0a0118] flex items-center justify-center overflow-hidden">
-                <img 
+                <img
                   src="/logo.png"
                   alt="Vercitty Logo"
-                  className="w-12 h-12 object-contain"
+                  className="w-9 h-9 md:w-12 md:h-12 object-contain"
                 />
               </div>
             </div>
@@ -79,7 +81,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white"
+            className="md:hidden text-white flex-shrink-0"
           >
             <svg
               className="w-6 h-6"
@@ -112,18 +114,20 @@ export function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 py-4 border-t border-purple-500/20"
+            className="md:hidden mt-3 py-3 border-t border-purple-500/20"
           >
-            <div className="flex flex-col gap-4">
-              {['Services', 'About', 'Portfolio', 'Testimonials', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-purple-200/80 hover:text-white transition-colors duration-300 text-left"
-                >
-                  {item}
-                </button>
-              ))}
+            <div className="flex flex-col gap-3">
+              {['Services', 'About', 'Portfolio', 'Testimonials', 'Contact'].map(
+                (item) => (
+                  <button
+                    key={item}
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className="text-purple-200/80 hover:text-white transition-colors duration-300 text-left"
+                  >
+                    {item}
+                  </button>
+                )
+              )}
             </div>
           </motion.div>
         )}

@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
+
 const projects = [
   {
     id: 'forex',
@@ -57,14 +58,20 @@ const projects = [
   },
 ];
 
+
 const categories = ['All', 'Web Development', 'Video Editing', 'Graphic Design', 'UI/UX Design'];
+
 
 export function PortfolioSection() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [showMore, setShowMore] = useState(false);
 
   const filteredProjects = selectedCategory === 'All'
     ? projects
     : projects.filter(project => project.category === selectedCategory);
+
+  // Show 3 projects initially, all if showMore is true
+  const displayedProjects = showMore ? filteredProjects : filteredProjects.slice(0, 3);
 
   return (
     <section id="portfolio" className="relative py-32 bg-gradient-to-b from-[#120828] via-[#0a0118] to-[#120828] overflow-hidden">
@@ -73,6 +80,7 @@ export function PortfolioSection() {
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
+
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -89,16 +97,19 @@ export function PortfolioSection() {
             </span>
           </div>
 
+
           <h2 className="mb-6 text-5xl md:text-6xl font-bold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200">
               Featured Projects
             </span>
           </h2>
 
+
           <p className="text-xl text-purple-200/70 max-w-2xl mx-auto">
             Explore our portfolio of successful projects that have helped brands achieve their goals
           </p>
         </motion.div>
+
 
         {/* Category filter */}
         <motion.div
@@ -111,7 +122,10 @@ export function PortfolioSection() {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => {
+                setSelectedCategory(category);
+                setShowMore(false); // Reset when changing category
+              }}
               className={`px-6 py-3 rounded-full backdrop-blur-sm border transition-all duration-300 ${selectedCategory === category
                   ? 'bg-gradient-to-r from-purple-600 to-cyan-600 border-purple-500/30 shadow-[0_0_20px_rgba(139,92,246,0.4)]'
                   : 'bg-purple-500/10 border-white/10 hover:border-purple-500/30'
@@ -122,9 +136,10 @@ export function PortfolioSection() {
           ))}
         </motion.div>
 
+
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -144,6 +159,7 @@ export function PortfolioSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0118] via-[#0a0118]/50 to-transparent opacity-60" />
                 </div>
 
+
                 {/* Content */}
                 <div className="p-6">
                   <div className={`inline-block px-3 py-1 mb-3 text-sm rounded-full bg-gradient-to-r ${project.color} bg-opacity-20 backdrop-blur-sm`}>
@@ -152,16 +168,18 @@ export function PortfolioSection() {
                     </span>
                   </div>
 
+
                   <h3 className="mb-2 text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">
                     {project.title}
                   </h3>
+
 
                   <p className="text-purple-200/70 leading-relaxed">
                     {project.description}
                   </p>
 
-                  {/* View project button */}
 
+                  {/* View project button */}
                   <a
                     href={project.url}
                     target="_blank"
@@ -183,9 +201,7 @@ export function PortfolioSection() {
                       />
                     </svg>
                   </a>
-
-                </div>   {/* CLOSE p-6 content div */}
-
+                </div>
 
                 {/* Glow effect */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`} />
@@ -193,8 +209,41 @@ export function PortfolioSection() {
             </motion.div>
           ))}
         </div>
-      </div>
 
+        {/* Show More / Show Less Button */}
+        {filteredProjects.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center pt-8"
+          >
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-full font-semibold overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] hover:scale-105"
+            >
+              <span className="relative z-10 inline-flex items-center gap-2">
+                {showMore ? (
+                  <>
+                    Show Less
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    Show More
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </>
+                )}
+              </span>
+            </button>
+          </motion.div>
+        )}
+      </div>
     </section>
   );
 }
