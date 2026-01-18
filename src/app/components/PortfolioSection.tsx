@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { url } from 'node:inspector';
 
 
 const projects = [
@@ -20,6 +21,7 @@ const projects = [
     description: 'Cinematic brand story that increased engagement by 300%',
     image: 'https://images.unsplash.com/photo-1673767297196-ce9739933932?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aWRlbyUyMHByb2R1Y3Rpb24lMjBzdHVkaW98ZW58MXx8fHwxNzY3NjEyODc4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     color: 'from-purple-400 to-pink-400',
+    url: "https://drive.google.com/drive/folders/1j1CxiaNh97vioBpx4DlRDS3ZYtpwPRPc"
   },
   {
     id: 'real-estate-3d',
@@ -55,6 +57,7 @@ const projects = [
     description: 'High-end corporate video with motion graphics and VFX',
     image: 'https://images.unsplash.com/photo-1516542076529-1ea3854896f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFnZW5jeSUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3Njc1NDg4OTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     color: 'from-blue-400 to-cyan-400',
+    url: "https://drive.google.com/drive/folders/1j1CxiaNh97vioBpx4DlRDS3ZYtpwPRPc"
   },
 ];
 
