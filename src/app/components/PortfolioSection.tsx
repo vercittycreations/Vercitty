@@ -60,6 +60,15 @@ const projects = [
     url : 'https://health-web-app-liard.vercel.app/'
   },
   {
+    id: 'trading-app',
+    title: 'Trader Hub',
+    category: 'Web Development',
+    description: 'Your personal Trading portfolio',
+    image: 'https://imgs.search.brave.com/4ktnqetAaY2zE4g2jgZYAnxn6ToUzI4SCqafTpCzKvA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNDkv/Njg2LzQ4Ni9zbWFs/bC9zdG9jay1tYXJr/ZXQtdHJhZGVyLWlz/LWFuYWx5emluZy1j/cnlwdG9jdXJyZW5j/eS1jaGFydHMtb24t/bXVsdGlwbGUtc2Ny/ZWVucy1sb29raW5n/LWZvci10cmFkaW5n/LW9wcG9ydHVuaXRp/ZXMtZnJlZS1waG90/by5qcGVn',
+    color: 'from-pink-400 to-purple-400',
+    url : 'https://trade-app-beige.vercel.app/'
+  },
+  {
     id: 'corporateshow',
     title: 'Corporate Showcase',
     category: 'Video Editing',
