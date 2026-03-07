@@ -10,7 +10,7 @@ import ContactSection from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ScrollIndicator } from './components/ScrollIndicator';
 import { PromoBanner } from './components/PromoBanner';
-
+import { QuickLinksSection } from './components/QuickLinksSection';
 // Legal Pages
 import Privacy from './components/Privacy';
 import TermsService from './components/TermsService';
@@ -20,6 +20,7 @@ import Disclaimer from './components/Disclaimer';
 function Home() {
   return (
     <div className="relative min-h-screen">
+      
       {/* FIXED BACKGROUND IMAGE - Only for Home */}
       <div 
         className="fixed inset-0 -z-50 bg-cover bg-center bg-no-repeat"
@@ -38,7 +39,7 @@ function Home() {
 
       {/* Hero Section */}
       <HeroSection />
-
+    <QuickLinksSection /> 
       {/* Stats Section */}
       <StatsSection />
 

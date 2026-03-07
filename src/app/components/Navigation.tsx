@@ -22,6 +22,15 @@ export function Navigation() {
     }
   };
 
+  // Internal scroll links
+  const internalLinks = ['Services', 'About', 'Portfolio', 'Testimonials'];
+
+  // External links
+  const externalLinks = [
+    { label: 'Attendance', href: 'https://attandance-rho.vercel.app' },
+    { label: 'Academy', href: 'https://vercitty-academy.vercel.app' },
+  ];
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -33,11 +42,10 @@ export function Navigation() {
           : 'bg-transparent'
       }`}
     >
-      {/* smaller padding on mobile */}
       <div className="max-w-7xl mx-auto px-4 py-2 sm:px-6 sm:py-4">
-        {/* add gap so logo + menu don't touch */}
         <div className="flex items-center justify-between gap-2">
-          {/* Logo - responsive sizes */}
+
+          {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="cursor-pointer flex-shrink-0"
@@ -55,24 +63,39 @@ export function Navigation() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {['Services', 'About', 'Portfolio', 'Testimonials'].map((item) => (
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
+            {/* Internal scroll links */}
+            {internalLinks.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-purple-200/80 hover:text-white transition-colors duration-300 relative group"
+                className="text-sm text-purple-200/80 hover:text-white transition-colors duration-300 relative group whitespace-nowrap"
               >
                 {item}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-cyan-400 group-hover:w-full transition-all duration-300" />
               </button>
             ))}
+
+            {/* External links — Attendance & Academy same style as internal links */}
+            {externalLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-purple-200/80 hover:text-white transition-colors duration-300 relative group whitespace-nowrap"
+              >
+                {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-cyan-400 group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:block flex-shrink-0">
             <button
               onClick={() => scrollToSection('contact')}
-              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300"
+              className="px-5 py-2.5 text-sm bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300 whitespace-nowrap"
             >
               Get Started
             </button>
@@ -117,17 +140,30 @@ export function Navigation() {
             className="md:hidden mt-3 py-3 border-t border-purple-500/20"
           >
             <div className="flex flex-col gap-3">
-              {['Services', 'About', 'Portfolio', 'Testimonials', 'Contact'].map(
-                (item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item.toLowerCase())}
-                    className="text-purple-200/80 hover:text-white transition-colors duration-300 text-left"
-                  >
-                    {item}
-                  </button>
-                )
-              )}
+              {/* Internal scroll links */}
+              {[...internalLinks, 'Contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="text-purple-200/80 hover:text-white transition-colors duration-300 text-left"
+                >
+                  {item}
+                </button>
+              ))}
+
+              {/* External links in mobile menu */}
+              {externalLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-200/80 hover:text-white transition-colors duration-300 text-left"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </motion.div>
         )}
